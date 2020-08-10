@@ -8,7 +8,7 @@ public class BrandingPojo {
     private Map map;
     private String logoUrl;
     private String description;
-    private ContactPojo contactPojo;
+    private BrandingContactPojo brandingContactPojo;
 
     public String getName() {
         return name;
@@ -42,12 +42,12 @@ public class BrandingPojo {
         this.description = description;
     }
 
-    public ContactPojo getContactPojo() {
-        return contactPojo;
+    public BrandingContactPojo getBrandingContactPojo() {
+        return brandingContactPojo;
     }
 
-    public void setContactPojo(ContactPojo contactPojo) {
-        this.contactPojo = contactPojo;
+    public void setBrandingContactPojo(BrandingContactPojo brandingContactPojo) {
+        this.brandingContactPojo = brandingContactPojo;
     }
 
 }

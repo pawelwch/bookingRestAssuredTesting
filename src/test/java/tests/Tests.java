@@ -1,16 +1,14 @@
 package tests;
 
 import endpoints.LoginEndpoint;
-import io.restassured.RestAssured;
-import io.restassured.authentication.PreemptiveBasicAuthScheme;
-import io.restassured.http.Cookie;
-import io.restassured.http.Header;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pojos.authorization.AuthPojo;
-import pojos.authorization.TokenPojo;
 import pojos.booking.BookingDatesPojo;
 import pojos.booking.BookingPojo;
+import pojos.branding.BrandingPojo;
+import pojos.branding.BrandingContactPojo;
+import pojos.branding.BrandingMapPojo;
 import pojos.message.MessagePojo;
 import pojos.room.RoomPojo;
 import testng.TestListener;
@@ -27,6 +25,9 @@ import static org.testng.Assert.assertTrue;
 @Listeners(TestListener.class)
 public class Tests extends BaseClass{
 
+    /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     * MESSAGE TESTS
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
     /** Method checking if the message was sent correctly and if the response is valid */
     @Test
@@ -48,6 +49,10 @@ public class Tests extends BaseClass{
         assertEquals(response.getPhone(), messagePojo.getPhone(), "User phone number");
     }
 
+    /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     * ROOMS TESTS
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
     /** Method checking if the request returns more than 1 room */
     @Test
     public void whenGetRoomsThenReturnMoreThanOneRoomTest() {
@@ -56,19 +61,6 @@ public class Tests extends BaseClass{
                 .then().extract().body().jsonPath().getList("rooms", RoomPojo.class);
 
         assertTrue(roomPojos.size() > 0, "List of rooms");
-    }
-
-    /** Method checking if Admin can log in */
-    @Test
-    public void givenCorrectAdminUsernameAndPasswordWhenPostLoginThenAdminIsLoginTest() {
-        AuthPojo authPojo = new AuthPojo("admin", "password");
-
-        String token = given().body(authPojo)
-                .when().post("/auth/login/")
-                .then().assertThat().extract().path("token");
-
-        assertThat(token, is(not(emptyString())));
-        assertEquals(token.length(), 16);
     }
 
     /** Method checking if after login Admin can post the Room and listing with all rooms can return it */
@@ -87,11 +79,33 @@ public class Tests extends BaseClass{
         //roomPojo.setFeatures()
         roomPojo.setRoomNumber(22);
 
-        given().header("authorization", token)
+        given().header("Authorization", "Bearer " + token)
                 .body(roomPojo)
                 .when().post("room/")
                 .then().statusCode(200);
     }
+
+    /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     * LOGIN TESTS
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+    /** Method checking if Admin can log in */
+    @Test
+    public void givenCorrectAdminUsernameAndPasswordWhenPostLoginThenAdminIsLoginTest() {
+        AuthPojo authPojo = new AuthPojo("admin", "password");
+
+        String token = given().body(authPojo)
+                .when().post("/auth/login/")
+                .then().assertThat().extract().path("token");
+
+        assertThat(token, is(not(emptyString())));
+        assertEquals(token.length(), 16);
+    }
+
+
+    /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     * BOOKING TESTS
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
     /** Method checking if after add new booking it appear in the system  */
     @Test
@@ -122,6 +136,40 @@ public class Tests extends BaseClass{
         assertEquals(actualBooking.getLastname(), bookingPojo.getLastname(), "Last name");
         assertEquals(actualBooking.getTotalprice(), bookingPojo.getTotalprice(), "Total price");
         assertEquals(actualBooking.getDepositpaid(), bookingPojo.getDepositpaid(), "Deposit paid");
+    }
+
+    /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     * BRANDING TESTS
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+    @Test
+    public void givenNewBrandingDataWhenPutBrandingThenBrandingIsUpdatedTests() {
+        BrandingPojo brandingPojo = new BrandingPojo();
+        LoginEndpoint loginEndpoint = new LoginEndpoint();
+        String token = loginEndpoint.createToken();
+
+        BrandingContactPojo brandingContactPojo = new BrandingContactPojo();
+        brandingContactPojo.setName("Paweł Nowak");
+        brandingContactPojo.setAddress("ul. Długa, 53-324 Wrocław");
+        brandingContactPojo.setEmail("pawel@nowak.pl");
+        brandingContactPojo.setPhone("+48123456789");
+
+        BrandingMapPojo brandingMapPojo = new BrandingMapPojo();
+        brandingMapPojo.setLatitude(51.107883);
+        brandingMapPojo.setLongitude(17.038538);
+
+        brandingPojo.setName("New Branding from Pablo");
+        brandingPojo.setDescription("Welcome in our website");
+        brandingPojo.setLogoUrl("https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_450,q_auto,w_450/itemimages/12/89/12898534.jpeg");
+        brandingPojo.setBrandingContactPojo(brandingContactPojo);
+        //brandingPojo.setMap(brandingMapPojo);
+
+
+
+        given().header("Authorization", "Bearer " + token)
+                .body(brandingPojo)
+                .when().put("branding/")
+                .then().statusCode(200);
     }
 }
 

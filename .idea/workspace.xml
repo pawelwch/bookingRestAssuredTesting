@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fb3d5138-e33e-4a58-a42f-6b72e288b987" name="Default Changelist" comment="" />
+    <list default="true" id="fb3d5138-e33e-4a58-a42f-6b72e288b987" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pojos/branding/BrandingPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pojos/branding/BrandingPojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pojos/branding/ContactPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pojos/branding/BrandingContactPojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pojos/branding/MapPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pojos/branding/BrandingMapPojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tests/Tests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/Tests.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +24,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -35,6 +46,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/files" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -48,7 +60,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources/files" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.Tests.whenGetBookingThenReturnNumberOfBookingTest">
+  <component name="RunManager" selected="TestNG.Tests.givenNewBrandingDataWhenPutBrandingThenBrandingIsUpdatedTests">
     <configuration name="Tests.givenCorrectAdminUsernameAndPasswordWhenPostLoginThenAdminIsLoginTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="bookingRestAssuredTesting" />
       <extension name="coverage">
@@ -67,7 +79,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tests.givenCorrectAdminUsernameAndPasswordWhenPostLoginThenUserIsLoginTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="Tests.givenCorrectBookingDataWhenPostBookingThenNewBookingIsAddedTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="bookingRestAssuredTesting" />
       <extension name="coverage">
         <pattern>
@@ -77,7 +89,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.Tests" />
-      <option name="METHOD_NAME" value="givenCorrectAdminUsernameAndPasswordWhenPostLoginThenUserIsLoginTest" />
+      <option name="METHOD_NAME" value="givenCorrectBookingDataWhenPostBookingThenNewBookingIsAddedTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -103,7 +115,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tests.whenCreateRoomThenGetListOfRoomsAndIsOnTheListTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="Tests.givenNewBrandingDataWhenPutBrandingThenBrandingIsUpdatedTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="bookingRestAssuredTesting" />
       <extension name="coverage">
         <pattern>
@@ -113,7 +125,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.Tests" />
-      <option name="METHOD_NAME" value="whenCreateRoomThenGetListOfRoomsAndIsOnTheListTest" />
+      <option name="METHOD_NAME" value="givenNewBrandingDataWhenPutBrandingThenBrandingIsUpdatedTests" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -141,11 +153,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.Tests.whenGetBookingThenReturnNumberOfBookingTest" />
+        <item itemvalue="TestNG.Tests.givenNewBrandingDataWhenPutBrandingThenBrandingIsUpdatedTests" />
+        <item itemvalue="TestNG.Tests.givenCorrectBookingDataWhenPostBookingThenNewBookingIsAddedTest" />
         <item itemvalue="TestNG.Tests.givenCorrectRoomDataWhenPostRoomThenReturnListWithNewlyCreatedRoomTest" />
+        <item itemvalue="TestNG.Tests.whenGetBookingThenReturnNumberOfBookingTest" />
         <item itemvalue="TestNG.Tests.givenCorrectAdminUsernameAndPasswordWhenPostLoginThenAdminIsLoginTest" />
-        <item itemvalue="TestNG.Tests.whenCreateRoomThenGetListOfRoomsAndIsOnTheListTest" />
-        <item itemvalue="TestNG.Tests.givenCorrectAdminUsernameAndPasswordWhenPostLoginThenUserIsLoginTest" />
       </list>
     </recent_temporary>
   </component>
@@ -185,10 +197,10 @@
       <screen x="0" y="48" width="1440" height="810" />
     </state>
     <state x="553" y="298" width="494" height="297" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@0.48.1440.810" timestamp="1595888445675" />
-    <state x="2100" y="80" width="580" height="979" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1595942258298">
+    <state x="2100" y="80" width="580" height="979" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1597096143646">
       <screen x="1440" y="48" width="1920" height="1080" />
     </state>
-    <state x="2100" y="80" width="580" height="979" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@1440.48.1920.1080" timestamp="1595942258298" />
+    <state x="2100" y="80" width="580" height="979" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@1440.48.1920.1080" timestamp="1597096143646" />
     <state x="2133" y="311" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596738596936">
       <screen x="1440" y="48" width="1920" height="1080" />
     </state>
@@ -199,43 +211,43 @@
     <state x="619" y="234" width="374" height="374" key="FileChooserDialogImpl/0.27.1600.822@0.27.1600.822" timestamp="1596058789268" />
     <state x="2183" y="320" key="FileChooserDialogImpl/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@1440.48.1920.1080" timestamp="1595944606337" />
     <state x="4103" y="272" width="424" height="491" key="FileChooserDialogImpl/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@3360.0.1920.1080" timestamp="1595884220189" />
-    <state width="1874" height="330" key="GridCell.Tab.0.bottom" timestamp="1597004061914">
-      <screen x="3360" y="0" width="1920" height="1080" />
+    <state width="1874" height="763" key="GridCell.Tab.0.bottom" timestamp="1597096566026">
+      <screen x="1440" y="48" width="1920" height="1080" />
     </state>
     <state width="1554" height="580" key="GridCell.Tab.0.bottom/0.27.1600.822@0.27.1600.822" timestamp="1596064380452" />
     <state width="1554" height="519" key="GridCell.Tab.0.bottom/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@0.48.1440.810" timestamp="1595888889693" />
-    <state width="1874" height="564" key="GridCell.Tab.0.bottom/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@1440.48.1920.1080" timestamp="1597002779458" />
-    <state width="1874" height="330" key="GridCell.Tab.0.bottom/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@3360.0.1920.1080" timestamp="1597004061914" />
+    <state width="1874" height="763" key="GridCell.Tab.0.bottom/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@1440.48.1920.1080" timestamp="1597096566026" />
+    <state width="1874" height="564" key="GridCell.Tab.0.bottom/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@3360.0.1920.1080" timestamp="1597091701693" />
     <state width="1874" height="392" key="GridCell.Tab.0.bottom/3520.94.1920.1080/1600.0.1920.1080/0.102.1600.900@1600.0.1920.1080" timestamp="1596578742949" />
     <state width="1874" height="392" key="GridCell.Tab.0.bottom/3520.94.1920.1080/1600.0.1920.1080/0.121.1600.830@1600.0.1920.1080" timestamp="1596576786841" />
     <state width="1874" height="812" key="GridCell.Tab.0.bottom/3520.94.1920.1080/1600.0.1920.1080/0.121.1600.830@3520.94.1920.1080" timestamp="1596489680477" />
-    <state width="1874" height="330" key="GridCell.Tab.0.center" timestamp="1597004061914">
-      <screen x="3360" y="0" width="1920" height="1080" />
+    <state width="1874" height="763" key="GridCell.Tab.0.center" timestamp="1597096566025">
+      <screen x="1440" y="48" width="1920" height="1080" />
     </state>
     <state width="1554" height="580" key="GridCell.Tab.0.center/0.27.1600.822@0.27.1600.822" timestamp="1596064380452" />
     <state width="1554" height="519" key="GridCell.Tab.0.center/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@0.48.1440.810" timestamp="1595888889692" />
-    <state width="1874" height="564" key="GridCell.Tab.0.center/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@1440.48.1920.1080" timestamp="1597002779457" />
-    <state width="1874" height="330" key="GridCell.Tab.0.center/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@3360.0.1920.1080" timestamp="1597004061914" />
+    <state width="1874" height="763" key="GridCell.Tab.0.center/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@1440.48.1920.1080" timestamp="1597096566025" />
+    <state width="1874" height="564" key="GridCell.Tab.0.center/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@3360.0.1920.1080" timestamp="1597091701693" />
     <state width="1874" height="392" key="GridCell.Tab.0.center/3520.94.1920.1080/1600.0.1920.1080/0.102.1600.900@1600.0.1920.1080" timestamp="1596578742949" />
     <state width="1874" height="392" key="GridCell.Tab.0.center/3520.94.1920.1080/1600.0.1920.1080/0.121.1600.830@1600.0.1920.1080" timestamp="1596576786841" />
     <state width="1874" height="812" key="GridCell.Tab.0.center/3520.94.1920.1080/1600.0.1920.1080/0.121.1600.830@3520.94.1920.1080" timestamp="1596489680477" />
-    <state width="1874" height="330" key="GridCell.Tab.0.left" timestamp="1597004061913">
-      <screen x="3360" y="0" width="1920" height="1080" />
+    <state width="1874" height="763" key="GridCell.Tab.0.left" timestamp="1597096566025">
+      <screen x="1440" y="48" width="1920" height="1080" />
     </state>
     <state width="1554" height="580" key="GridCell.Tab.0.left/0.27.1600.822@0.27.1600.822" timestamp="1596064380452" />
     <state width="1554" height="519" key="GridCell.Tab.0.left/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@0.48.1440.810" timestamp="1595888889692" />
-    <state width="1874" height="564" key="GridCell.Tab.0.left/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@1440.48.1920.1080" timestamp="1597002779457" />
-    <state width="1874" height="330" key="GridCell.Tab.0.left/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@3360.0.1920.1080" timestamp="1597004061913" />
+    <state width="1874" height="763" key="GridCell.Tab.0.left/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@1440.48.1920.1080" timestamp="1597096566025" />
+    <state width="1874" height="564" key="GridCell.Tab.0.left/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@3360.0.1920.1080" timestamp="1597091701692" />
     <state width="1874" height="392" key="GridCell.Tab.0.left/3520.94.1920.1080/1600.0.1920.1080/0.102.1600.900@1600.0.1920.1080" timestamp="1596578742949" />
     <state width="1874" height="392" key="GridCell.Tab.0.left/3520.94.1920.1080/1600.0.1920.1080/0.121.1600.830@1600.0.1920.1080" timestamp="1596576786841" />
     <state width="1874" height="812" key="GridCell.Tab.0.left/3520.94.1920.1080/1600.0.1920.1080/0.121.1600.830@3520.94.1920.1080" timestamp="1596489680477" />
-    <state width="1874" height="330" key="GridCell.Tab.0.right" timestamp="1597004061914">
-      <screen x="3360" y="0" width="1920" height="1080" />
+    <state width="1874" height="763" key="GridCell.Tab.0.right" timestamp="1597096566025">
+      <screen x="1440" y="48" width="1920" height="1080" />
     </state>
     <state width="1554" height="580" key="GridCell.Tab.0.right/0.27.1600.822@0.27.1600.822" timestamp="1596064380452" />
     <state width="1554" height="519" key="GridCell.Tab.0.right/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@0.48.1440.810" timestamp="1595888889693" />
-    <state width="1874" height="564" key="GridCell.Tab.0.right/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@1440.48.1920.1080" timestamp="1597002779458" />
-    <state width="1874" height="330" key="GridCell.Tab.0.right/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@3360.0.1920.1080" timestamp="1597004061914" />
+    <state width="1874" height="763" key="GridCell.Tab.0.right/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@1440.48.1920.1080" timestamp="1597096566025" />
+    <state width="1874" height="564" key="GridCell.Tab.0.right/0.48.1440.810/3360.0.1920.1080/1440.48.1920.1080@3360.0.1920.1080" timestamp="1597091701693" />
     <state width="1874" height="392" key="GridCell.Tab.0.right/3520.94.1920.1080/1600.0.1920.1080/0.102.1600.900@1600.0.1920.1080" timestamp="1596578742949" />
     <state width="1874" height="392" key="GridCell.Tab.0.right/3520.94.1920.1080/1600.0.1920.1080/0.121.1600.830@1600.0.1920.1080" timestamp="1596576786841" />
     <state width="1874" height="812" key="GridCell.Tab.0.right/3520.94.1920.1080/1600.0.1920.1080/0.121.1600.830@3520.94.1920.1080" timestamp="1596489680477" />

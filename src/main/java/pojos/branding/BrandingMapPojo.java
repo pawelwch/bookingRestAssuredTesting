@@ -1,6 +1,6 @@
 package pojos.branding;
 
-public class MapPojo {
+public class BrandingMapPojo {
 
     private Double latitude;
     private Double longitude;

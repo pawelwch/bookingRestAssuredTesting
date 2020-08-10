@@ -1,6 +1,6 @@
 package pojos.branding;
 
-public class ContactPojo {
+public class BrandingContactPojo {
 
     private String name;
     private String address;
