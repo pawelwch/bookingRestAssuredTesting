@@ -1,6 +1,7 @@
 package tests;
 
 import endpoints.LoginEndpoint;
+import endpoints.RoomEndpoint;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pojos.authorization.AuthPojo;
@@ -29,7 +30,7 @@ public class Tests extends BaseClass{
      * MESSAGE TESTS
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-    /** Method checking if the message was sent correctly and if the response is valid */
+    /** The method checks if the message was sent correctly and if the response is valid */
     @Test
     public void givenCorrectMessageDataWhenPostMessageThenMessageIsSentTest() {
         MessagePojo messagePojo = new MessagePojo();
@@ -53,7 +54,7 @@ public class Tests extends BaseClass{
      * ROOMS TESTS
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-    /** Method checking if the request returns more than 1 room */
+    /** The method checks if the request returns more than 1 room */
     @Test
     public void whenGetRoomsThenReturnMoreThanOneRoomTest() {
         List<RoomPojo> roomPojos = given()
@@ -63,7 +64,7 @@ public class Tests extends BaseClass{
         assertTrue(roomPojos.size() > 0, "List of rooms");
     }
 
-    /** Method checking if after login Admin can post the Room and listing with all rooms can return it */
+    /** The method checks if after login Admin can post the Room and listing with all rooms can return it */
     @Test
     public void givenCorrectRoomDataWhenPostRoomThenReturnListWithNewlyCreatedRoomTest() {
         LoginEndpoint loginEndpoint = new LoginEndpoint();
@@ -89,7 +90,7 @@ public class Tests extends BaseClass{
      * LOGIN TESTS
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-    /** Method checking if Admin can log in */
+    /** The method checks if Admin can log in */
     @Test
     public void givenCorrectAdminUsernameAndPasswordWhenPostLoginThenAdminIsLoginTest() {
         AuthPojo authPojo = new AuthPojo("admin", "password");
@@ -107,7 +108,7 @@ public class Tests extends BaseClass{
      * BOOKING TESTS
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-    /** Method checking if after add new booking it appear in the system  */
+    /** The method checks if after add new booking it appear in the system  */
     @Test
     public void givenCorrectBookingDataWhenPostBookingThenNewBookingIsAddedTest() {
         BookingPojo bookingPojo = new BookingPojo();
@@ -136,6 +137,17 @@ public class Tests extends BaseClass{
         assertEquals(actualBooking.getLastname(), bookingPojo.getLastname(), "Last name");
         assertEquals(actualBooking.getTotalprice(), bookingPojo.getTotalprice(), "Total price");
         assertEquals(actualBooking.getDepositpaid(), bookingPojo.getDepositpaid(), "Deposit paid");
+    }
+
+    /** The method checks if after GET a Room can we book it */
+    @Test
+    public void givenCorrectBookDataWhenPostBookingThenRoomIsBookedTest() {
+        int roomWithIdEqualOne = given()
+                .when().get("room/")
+                .then().extract().jsonPath().getInt("rooms[0].roomid");
+        assertThat(roomWithIdEqualOne, is(equalTo(1)));
+
+
     }
 
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

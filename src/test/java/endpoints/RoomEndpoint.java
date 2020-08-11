@@ -1,11 +1,5 @@
 package endpoints;
 
-import io.restassured.RestAssured;
-import io.restassured.filter.log.RequestLoggingFilter;
-import io.restassured.filter.log.ResponseLoggingFilter;
-import io.restassured.response.Response;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 import pojos.room.RoomPojo;
 
 import static io.restassured.RestAssured.given;
@@ -13,9 +7,10 @@ import static io.restassured.RestAssured.given;
 public class RoomEndpoint {
 
     // GET all rooms
-    public Response getRoom() {
+    public RoomPojo getRooms() {
         return given().contentType("application/json").log().all()
-                .when().get("https://automationintesting.online/room/");
+                .when().get("https://automationintesting.online/room/")
+                .then().extract().as(RoomPojo.class);
     }
 
 //    public Response postRoom() {
