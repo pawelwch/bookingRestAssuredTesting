@@ -60,7 +60,6 @@ public class Tests extends BaseClass{
         List<RoomPojo> roomPojos = given()
                 .when().get("room/")
                 .then().extract().body().jsonPath().getList("rooms", RoomPojo.class);
-
         assertTrue(roomPojos.size() > 0, "List of rooms");
     }
 
@@ -80,7 +79,7 @@ public class Tests extends BaseClass{
         //roomPojo.setFeatures()
         roomPojo.setRoomNumber(22);
 
-        given().header("Authorization", "Bearer " + token)
+        given().cookie("token", token)
                 .body(roomPojo)
                 .when().post("room/")
                 .then().statusCode(200);
@@ -172,7 +171,7 @@ public class Tests extends BaseClass{
 
         brandingPojo.setName("New Branding from Pablo");
         brandingPojo.setDescription("Welcome in our website");
-        brandingPojo.setLogoUrl("https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_450,q_auto,w_450/itemimages/12/89/12898534.jpeg");
+        brandingPojo.setLogoUrl("https://p.bookcdn.com/data/Photos/380x204/8900/890081/890081344/Center-Rooms-Villach-photos-Exterior-Center-Rooms-Villach.JPEG");
         brandingPojo.setBrandingContactPojo(brandingContactPojo);
         //brandingPojo.setMap(brandingMapPojo);
 

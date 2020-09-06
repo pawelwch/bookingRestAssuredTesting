@@ -7,6 +7,7 @@ public class MessagePojo {
     String name;
     String phone;
     String subject;
+    String messageid;
 
     public String getDescription() {
         return description;
@@ -50,6 +51,15 @@ public class MessagePojo {
 
     public MessagePojo setSubject(String subject) {
         this.subject = subject;
+        return this;
+    }
+
+    public String getMessageid() {
+        return messageid;
+    }
+
+    public MessagePojo setMessageid(String messageid) {
+        this.messageid = messageid;
         return this;
     }
 }

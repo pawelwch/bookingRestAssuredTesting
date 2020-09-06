@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.authentication.PreemptiveBasicAuthScheme;
 import io.restassured.builder.RequestSpecBuilder;
@@ -27,6 +28,7 @@ public class BaseClass{
         RequestSpecBuilder requestSpecBuilder = new RequestSpecBuilder();
         requestSpecBuilder.setContentType("application/json");
         requestSpecBuilder.setAccept("application/json");
+        requestSpecBuilder.addFilter(new AllureRestAssured());
         RestAssured.requestSpecification = requestSpecBuilder.build();
     }
 

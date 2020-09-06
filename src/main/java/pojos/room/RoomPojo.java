@@ -1,6 +1,10 @@
 package pojos.room;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.Expose;
+
 import javax.validation.constraints.*;
+
 
 public class RoomPojo {
 
@@ -19,6 +23,8 @@ public class RoomPojo {
     @Min(0)
     @Max(999)
     private int roomPrice;
+
+    @JsonProperty("roomid")
     private int roomId;
 
     @NotNull(message = "Type must be set")
