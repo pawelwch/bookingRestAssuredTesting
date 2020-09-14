@@ -1,5 +1,7 @@
 package pojos.booking;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class BookingPojo {
 
     private String firstname;
@@ -9,6 +11,11 @@ public class BookingPojo {
     private BookingDatesPojo bookingdates;
     private String additionalneeds;
     private int roomid;
+    private String email;
+    private String phone;
+
+    @JsonProperty
+    private String timestamp;
 
     public String getFirstname() {
         return firstname;
@@ -64,6 +71,24 @@ public class BookingPojo {
 
     public BookingPojo setRoomid(int roomid) {
         this.roomid = roomid;
+        return this;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public BookingPojo setEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public BookingPojo setPhone(String phone) {
+        this.phone = phone;
         return this;
     }
 }

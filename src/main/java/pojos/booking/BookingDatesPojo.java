@@ -8,15 +8,17 @@ public class BookingDatesPojo {
         return checkin;
     }
 
-    public void setCheckin(String checkin) {
+    public BookingDatesPojo setCheckin(String checkin) {
         this.checkin = checkin;
+        return this;
     }
 
     public String getCheckout() {
         return checkout;
     }
 
-    public void setCheckout(String checkout) {
+    public BookingDatesPojo setCheckout(String checkout) {
         this.checkout = checkout;
+        return this;
     }
 }

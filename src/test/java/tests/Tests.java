@@ -2,6 +2,9 @@ package tests;
 
 import endpoints.LoginEndpoint;
 import endpoints.RoomEndpoint;
+import io.restassured.response.Response;
+import io.restassured.response.ResponseBody;
+import org.hamcrest.Matchers;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pojos.authorization.AuthPojo;
@@ -102,6 +105,33 @@ public class Tests extends BaseClass{
         assertEquals(token.length(), 16);
     }
 
+    /** The method checks if Admin can log in with incorrect Username*/
+    @Test
+    public void givenIncorrectAdminUsernameAndCorrectPasswordWhenPostLoginThenAdminIsNotLoginTest() {
+        AuthPojo authPojo = new AuthPojo("wrong", "password");
+
+        Response response = given().body(authPojo)
+                .when().post("/auth/login/")
+                .then().extract().response();
+
+        int statusCode = response.statusCode();
+        assertEquals(statusCode, 403, "Status code");
+    }
+
+    /** The method checks if Admin can log in with incorrect Password*/
+    @Test
+    public void givenIncorrectAdminPasswordAndCorrectUsernameWhenPostLoginThenAdminIsNotLoginAndTest() {
+        AuthPojo authPojo = new AuthPojo("admin", "wrong");
+
+        Response response = given().body(authPojo)
+                .when().post("/auth/login/")
+                .then().extract().response();
+
+        int statusCode = response.statusCode();
+
+        assertEquals(statusCode, 403, "Status code");
+    }
+
 
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      * BOOKING TESTS
@@ -138,14 +168,37 @@ public class Tests extends BaseClass{
         assertEquals(actualBooking.getDepositpaid(), bookingPojo.getDepositpaid(), "Deposit paid");
     }
 
-    /** The method checks if after GET a Room can we book it */
+
+
+
+
+    // TO BE CONTINUED //////////////////////////////////////////////
+    /** The method checks if the user can get all rooms and then book room with id = 1 */
     @Test
-    public void givenCorrectBookDataWhenPostBookingThenRoomIsBookedTest() {
-        int roomWithIdEqualOne = given()
+    public void whenGetAllRoomsAndPostBookingThenRoomWithIdOneIsBookedTest() {
+        int roomWithIdOne = given()
                 .when().get("room/")
                 .then().extract().jsonPath().getInt("rooms[0].roomid");
-        assertThat(roomWithIdEqualOne, is(equalTo(1)));
+        assertThat(roomWithIdOne, is(equalTo(1)));
 
+        BookingDatesPojo bookingDatesPojo = new BookingDatesPojo();
+        BookingPojo bookingPojo = new BookingPojo();
+
+        bookingPojo.setFirstname("John");
+        bookingPojo.setLastname("Deer");
+        bookingPojo.setEmail("johndeer@random.com");
+        bookingPojo.setRoomid(1);
+        bookingPojo.setPhone("+480123456789");
+        bookingPojo.setDepositpaid(true);
+        bookingDatesPojo.setCheckin("020-09-15");
+        bookingDatesPojo.setCheckout("020-09-16");
+        bookingPojo.setRoomid(1);
+
+        BookingPojo actualBooking = given().body(bookingPojo)
+                .when().post("booking/")
+                .then().extract().as(BookingPojo.class);
+
+        assertEquals(actualBooking.getRoomid(), bookingPojo.getRoomid(), "Room id");
 
     }
 

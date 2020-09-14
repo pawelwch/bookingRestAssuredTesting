@@ -1,5 +1,8 @@
 package pojos.message;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class MessagePojo {
 
     String description;
@@ -7,6 +10,7 @@ public class MessagePojo {
     String name;
     String phone;
     String subject;
+    @JsonIgnore
     String messageid;
 
     public String getDescription() {
